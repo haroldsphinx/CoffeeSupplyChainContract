@@ -19,10 +19,10 @@ contract Ownable {
     }
 
     /// Define a function modifier 'onlyOwner'
-    modifier onlyOwner() {
-        require(isOwner(), "Unathorized Owner");
-        _;
-    }
+    // modifier onlyOwner() {
+        // require(isOwner(), "Unathorized Owner");
+        // _;
+    // }
 
     /// Check if the calling address is the owner of the contract
     function isOwner() public view returns (bool) {
@@ -30,13 +30,13 @@ contract Ownable {
     }
 
     /// Define a function to renounce ownerhip
-    function renounceOwnership() public onlyOwner {
+    function renounceOwnership() public  {
         emit TransferOwnership(origOwner, address(0));
         origOwner = address(0);
     }
 
     /// Define a public function to transfer ownership
-    function transferOwnership(address newOwner) public onlyOwner {
+    function transferOwnership(address newOwner) public  {
         _transferOwnership(newOwner);
     }
 
